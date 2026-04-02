@@ -91,7 +91,6 @@
 </head>
 <body>
 
-<!-- Top section: profile + grid -->
 <div class="container section" id="top-section">
     <div class="box profile">
         <div>
@@ -139,9 +138,9 @@
         </p>
     </div>
     <div class="box">
-        <h2>Nouvelle Section</h2>
+        <h2>Autres</h2>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Certificat <a href="./includes/Certif PIX.pdf">PIX</a> |
         </p>
     </div>
     <div class="box">
