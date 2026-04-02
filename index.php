@@ -81,10 +81,27 @@
             transform: translateY(0);
         }
 
+        .scroll-section3 {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scroll-section3.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         #top-section {
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
         #second-section {
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        #third-section {
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        #bottom-section {
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
     </style>
@@ -150,7 +167,33 @@
         </p>
     </div>
 </div>
-<div class="container scroll-section2" id="third-section">
+<div class="container scroll-section3" id="third-section">
+    <div class="box">
+        <h2>Projets réalisés</h2>
+        <p>
+            2 années, 3 projets :
+        </p>
+        <p>
+            Partant de sites web, aux bases de données, à la création d'applications...
+        </p>
+        <p>
+            <img src="./includes/PROJETAP1.png" alt="Projet AP" width="45%">
+            <img src="./includes/PROJETAP2.png" alt="Projet AP" width="45%">
+            <img src="./includes/cluemap1.png" alt="Projet AP" width="45%">
+        </p>
+        <p>
+            Stage
+        </p>
+        <img src="./includes/Stage.png" alt="Projet Stage" width="45%">
+    </div>
+    <div class="box">
+        <h2>Compétences acquises</h2>
+        <p>
+            - Gérer un site web et une base de données<br>- L'utilisations d'outils divers pour le développement WEB<br>- Le designing d'une page web<br>- Plusieurs languages
+        </p>
+    </div>
+</div>
+<div class="container scroll-section2" id="bottom-section">
     <div class="box">
         <h2>Tableau compétence</h2>
         <p>
@@ -163,10 +206,12 @@
     const topSection = document.getElementById('top-section');
     const secondSection = document.getElementById('second-section');
     const thirdSection = document.getElementById('third-section');
+    const bottomSection = document.getElementById('bottom-section');
 
     const handleScroll = () => {
         const triggerPoint = window.innerHeight * 0.5;
-        const triggerPoint2 = window.innerHeight * 1.5;
+        const triggerPoint2 = window.innerHeight * 1.65;
+        const triggerPoint3 = window.innerHeight * 2.9;
         const scrollTop = window.scrollY;
 
         if (scrollTop > triggerPoint) { //Vérifie que l'écran est descendu à moitié
@@ -180,6 +225,18 @@
                 secondSection.style.transform = 'translateY(-40px)';
 
                 thirdSection.classList.add('visible'); //Cache la partie 2, affiche la partie 3
+
+                if (scrollTop > triggerPoint3) { //Vérifie que la partie 3 est descendu à moitié
+                    thirdSection.classList.remove('visible');
+                    thirdSection.style.transform = 'translateY(-40px)';
+
+                    bottomSection.classList.add('visible'); //Cache la partie 3, affiche la partie 4
+                } else {
+                    thirdSection.classList.add('visible');
+                    thirdSection.style.transform = 'translateY(0)';
+
+                    bottomSection.classList.remove('visible');
+                }
             } else {
                 secondSection.classList.add('visible');
                 secondSection.style.transform = 'translateY(0)';
